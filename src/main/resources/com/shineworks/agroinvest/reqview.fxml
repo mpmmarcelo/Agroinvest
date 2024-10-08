@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<?import com.shineworks.agroinvest.MNumberField?>
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <HBox alignment="TOP_CENTER">
+                    <children>
+                        <Label text="Requerimento " />
+                        <Label fx:id="numero" text="numero" />
+                        <Label text="/" />
+                        <Label fx:id="ano" text="ano" />
+                    </children>
+                </HBox>
+                <TitledPane collapsible="false" text="Requerente">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <content>
+                        <GridPane hgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="CPF" />
+                                <Label text="Nome" GridPane.columnIndex="1" />
+                                <Label text="Telefone" GridPane.columnIndex="2" />
+                                <Label text="Endereço" GridPane.columnIndex="3" />
+                                <MNumberField fx:id="cpf" GridPane.rowIndex="1" />  <!-- MNumberField -->
+                                <TextField fx:id="nome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <MNumberField fx:id="telefone" GridPane.columnIndex="2" GridPane.rowIndex="1" /> <!-- MNumberField -->
+                                <TextField fx:id="endereco" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+                <TitledPane collapsible="false" focusTraversable="false" text="Imóvel">
+                    <content>
+                        <GridPane hgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Denominação" />
+                                <Label text="CADPRO" GridPane.columnIndex="1" />
+                                <Label text="Amparo Legal" GridPane.columnIndex="2" />
+                                <TextField fx:id="denominacao" GridPane.rowIndex="1" />
+                                <MNumberField fx:id="cadpro" GridPane.columnIndex="1" GridPane.rowIndex="1" /> <!-- MNumberField -->
+                                <ChoiceBox fx:id="amparoLegal" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <Label text="Descrição detalhada do serviço" GridPane.rowIndex="2" />
+                                <TextField fx:id="descricaoDoServico" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+                <TitledPane collapsible="false" focusTraversable="false" text="Horas/Máquina">
+                    <content>
+                        <GridPane hgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ChoiceBox fx:id="tipo" prefWidth="150.0" />
+                                <TextField fx:id="quantidade" GridPane.columnIndex="1" />
+                                <ChoiceBox fx:id="equipamento" prefWidth="150.0" GridPane.columnIndex="2" />
+                                <Button mnemonicParsing="false" onAction="#add" text="+" GridPane.columnIndex="3" />
+
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+                <TableView fx:id="tableView" focusTraversable="false" prefHeight="200.0" prefWidth="375.0">
+                    <columns>
+                        <TableColumn fx:id="tipoCol" prefWidth="75.0" text="Tipo" />
+                        <TableColumn fx:id="qntCol" prefWidth="75.0" text="Qnt" />
+                        <TableColumn fx:id="equipamentoCol" prefWidth="200.0" text="Equipamento" />
+                    </columns>
+                </TableView>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Button fx:id="btnRequerimento" mnemonicParsing="false" onAction="#gerarRequerimento" text="Gerar Requerimento" />
+                        <Button fx:id="btnCI" mnemonicParsing="false" onAction="#gerarCI" text="Gerar Comunicação Interna" />
+                        <Button fx:id="btnAutorizacao" mnemonicParsing="false" onAction="#gerarAutorizacao" text="Gerar Autorização" />
+                  <ComboBox fx:id="isento" />
+                        <Button fx:id="btnAbrir" mnemonicParsing="false" onAction="#abrirRequerimento" text="Abrir Requerimento" />
+                  <ComboBox fx:id="selectAno" prefWidth="80.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Label fx:id="data" text="data" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

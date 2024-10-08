@@ -1,0 +1,4 @@
+config.properties
+# Project exclude paths
+/out/
+/target/
