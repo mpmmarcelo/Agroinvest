@@ -8,3 +8,5 @@ Se trata de uma Lei de incentivo a produção agrícola, onde os produtores do m
 Para acessar tal programa é necessária a elaboração de diversos documentos, normalmente com dados redundantes ou que se completam. 
 
 Agroinvest armazena dados dos produtores, facilitando a inserção e posterior consulta dos dados. Faz uso do Apache POI para preenchimento automatizado dos formulários.
+
+![Alt Text](preview.gif)
