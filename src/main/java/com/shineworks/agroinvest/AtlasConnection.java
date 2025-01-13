@@ -14,7 +14,7 @@ public class AtlasConnection {
 
     private Requerimento requerimento;
     private boolean ativo, requerenteCadastrado;
-    private String anoAtual = "2024";
+    private String anoAtual = "2025"; //substituir por time.now() ou algo assim, se nao da problema quando vira o ano
 
     public AtlasConnection(Requerimento requerimento) {
         this.requerimento = requerimento;
